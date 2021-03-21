@@ -1,0 +1,759 @@
+/* 
+  ___ _            _                 _   
+ / __(_)_ __  _ __| |___ _ _ ___ _ _| |_ 
+ \__ \ | '  \| '_ \ / -_) '_/ -_) ' \  _|
+ |___/_|_|_|_| .__/_\___|_| \___|_||_\__|
+ | __|____ __|_|                         
+ | _/ _ \ \ /                            
+ |_|\___/_\_\                            
+                                         
+ One Line Version
+ Designed and Coded by Miguel R. Ávila: https://github.com/MiguelRAvila
+ Patched by u/CommonSenseUsed or @jruaaa on github
+ All Addons by u/It_Was_the_other_guy or @MrOtherGuy
+*/
+
+@import url('dark_checkboxes_and_radios.css');
+@import url('dark_additional_windows.css');
+@import url('dark_context_menus.css');
+@import url('contextMenus.css');
+
+
+/* 
+V A R I A B L E S 
+Here you can change the opacity level and the main color of the browser. Also the color of the selections (When you select text)
+*/
+
+:root {
+  --srf-color-primary: #1F2228; 
+  /* default: #141414 #1c1e26
+  WARNING: Transparency breakes the window behavior, 
+  you can still add transparency but the 
+  window manager will have some bugs.
+  default:  #66a6d9
+  */
+  --srf-color-selection: #ffffff;
+}
+
+/* 
+G E N E R A L 
+*/
+
+window,
+#main-window,
+#toolbar-menubar,
+#TabsToolbar,
+#PersonalToolbar,
+#navigator-toolbox,
+#sidebar-box,
+#nav-bar {
+  background-color: var(--srf-color-primary) !important;
+  -moz-appearance: none !important;
+  background-image: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+::selection {
+  background-color: var(--srf-color-selection);
+  /* Text color of your selection */
+  color: #141414; /*#141414 */
+}
+
+/* 
+T A B S 
+*/
+
+:root {
+  --tabs-border: transparent !important;
+  --toolbox-border-bottom-color: transparent !important;
+}
+
+#navigator-toolbox {
+  border: 0px !important;
+}
+
+#TabsToolbar {
+  margin-top: -1px !important;
+  margin-bottom: 1px !important;
+  margin-left: 25vw !important;
+  max-height: 32px !important;
+}
+
+.tab-background {
+  border: none !important;
+}
+
+.tab-background[selected='true'] {
+  -moz-appearance: none !important;
+  background-image: none !important;
+  background: #252930 !important;
+}
+
+.tabbrowser-tabs {
+  border: none !important;
+  opacity: 0 !important;
+}
+
+.tabbrowser-tab::before {
+  opacity: 0 !important;
+  border-left: none !important;
+}
+
+.tabbrowser-tab::after {
+  opacity: 0 !important;
+  border-left: none !important;
+}
+
+.titlebar-placeholder {
+  border: none !important;
+}
+
+.tab-line {
+  display: none !important;
+}
+
+.tabbrowser-arrowscrollbox {
+  height: 32px !important;
+  min-height: 32px !important;
+}
+
+.titlebar-placeholder[type='pre-tabs'] {
+  display: none !important;
+}
+
+/* 
+B U T T O N S 
+Here you can comment if you want your buttons to be showed up!
+*/
+
+/* This one is the forward button  */
+
+#forward-button {
+  display: none !important;
+}
+
+/* This one is the back button  */
+/* #back-button {
+  display: none !important;
+} */
+
+/* This one is the spacer between tabs and border  */
+.titlebar-spacer {
+  display: none !important;
+  width: 1px;
+}
+
+/* This one is the "shield" icon  */
+#tracking-protection-icon-container {
+  display: none !important;
+}
+
+/* This one is the hamburger menu!  */
+#PanelUI-button {
+  display: none !important;
+}
+
+/* This one removes the close button  */
+.tabbrowser-tab:not([pinned]) .tab-close-button {
+  /* display: none !important; */
+  border-radius: 13px;
+}
+
+/* This one clears the tabs icon when they're not pinned  */
+/* .tabbrowser-tab:not([pinned]) .tab-icon-image {
+  display: none !important;
+} */
+
+/* Removing the zoom button  */
+#urlbar-zoom-button {
+  display: none !important;
+}
+
+/* Page action (right three dash button)  */
+#pageActionButton {
+  display: none !important;
+}
+
+/* #back-button[disabled]~#stop-reload-button{ 
+  border-radius: 13px;
+} */
+
+
+/* 
+N A V B A R
+*/
+
+#navigator-toolbox::after {
+  border: 0px !important;
+}
+
+#nav-bar {
+  border: none !important;
+  box-shadow: none !important;
+  border-top-width: 0px !important;
+  border-bottom-width: 0px !important;
+  margin-top: -32px !important;
+  margin-bottom: -1px !important;
+  margin-right: 75vw !important;
+  height: 32px !important;
+}
+
+/* 
+S I D E - B A R
+*/
+
+#history-panel,
+#sidebar-search-container,
+#bookmarksPanel {
+  background: var(--srf-color-primary) !important;
+}
+
+#search-box {
+  -moz-appearance: none !important;
+  background: var(--srf-color-primary) !important;
+  border-radius: 6px !important;
+}
+
+#sidebar-icon {
+  display: none !important;
+}
+
+.sidebar-placesTree {
+  color: var(--srf-color-selection) !important;
+}
+
+#sidebar-switcher-target {
+  color: var(--srf-color-selection) !important;
+}
+
+#sidebar-header {
+  background: var(--srf-color-primary) !important;
+}
+
+#sidebar-splitter {
+  border: none !important;
+  opacity: 1 !important;
+  background-color: var(--srf-color-primary) !important;
+}
+
+splitter#sidebar-splitter {
+  border: none !important;
+}
+
+/* 
+U R L - B A R
+*/
+
+#urlbar[breakout] {
+  margin-inline-start: 0px !important;
+  width: 100% !important;
+  left: 0 !important; /* left */
+  top: calc(
+    (var(--urlbar-toolbar-height) - var(--urlbar-height)) / 2
+  ) !important;
+  max-height: 7px !important;
+  /* margin-top: 5px !important; */
+  /* margin-bottom: 5px !important; */
+}
+
+@-moz-document url(chrome://browser/content/browser.xhtml)
+{
+  #urlbar[breakout][breakout-extend] > #urlbar-background {
+    animation-name: none !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05) !important;
+    border-radius: 10px !important;
+    
+  }
+}
+
+#urlbar[breakout]:not([open]) {
+  bottom: calc(
+    (var(--urlbar-toolbar-height) - var(--urlbar-height)) / 2
+  ) !important;
+}
+
+#urlbar[breakout-extend] {
+  top: calc(
+    (var(--urlbar-toolbar-height) - var(--urlbar-height)) / 2
+  ) !important;
+  left: calc(
+    (var(--urlbar-toolbar-width) - var(--urlbar-width)) / 2
+  ) !important;
+  width: 100% !important;
+}
+
+#urlbar[breakout-extend] #urlbar-input-container {
+  height: calc(var(--tab-min-height) - 3px) !important;
+  padding-left: 8px !important;
+}
+
+#urlbar-input-container {
+  padding-left: 8px !important;
+  height: 100% !important;
+}
+
+#identity-box {
+  display: none;
+}
+
+.urlbarView-row {
+  padding: 0px !important;
+}
+
+#searchbar {
+  background: var(--bf-bg) !important;
+  border: none !important;
+}
+
+.searchbar-textbox {
+  color: var(--bf-focus-fg) !important;
+  font-weight: 700 !important;
+}
+
+#urlbar-container {
+  min-width: 150px !important; /* 150px */ 
+}
+
+#urlbar {
+  border: none !important;
+  box-shadow: none !important;
+  max-height: 5px !important;
+}
+
+#page-action-buttons {
+  display: none !important;
+}
+
+.urlbarView {
+  margin: 0px !important;
+  width: 100% !important;
+}
+
+#urlbar-label-box,
+#urlbar-search-mode-indicator {
+  display: none !important;
+}
+
+/* 
+If you want to show the URLBar extended you must
+change this two blocks:
+In order to show it, you must change the value of "transparent" in the first block 
+and erease the second block. 
+*/
+
+#urlbar-background {
+  background: #252930 !important;/* background: transparent !important; */
+  border: transparent !important; 
+  /* animation: none !important; */
+  border-radius: 13px !important;
+  transform: scale(1, .85) !important;
+}
+
+
+#urlbar .urlbarView {
+  display: none !important;
+}
+
+/*** back button fix ***/
+#back-button > .toolbarbutton-icon {
+  animation: none !important;
+  background: none !important;
+  border: none !important;
+  border-radius: 2px !important;
+  box-shadow: none !important;
+  transform: scale(.85, .85) !important; /* from firefox 87 on you should not use this line anymore, because the back-arrow will be 2px too small if scaled down to .85 */
+}
+
+/*** mimic back button hover and active state ***/
+#back-button:hover:not([disabled]) > .toolbarbutton-icon {
+  background-color: var(--toolbarbutton-hover-background) !important;
+}
+#back-button:active:not([disabled]) > .toolbarbutton-icon {
+  background-color: var(--toolbarbutton-active-background) !important;
+}
+
+
+
+
+/* right click menu dark theme */
+
+
+#sidebarMenu-popup toolbarbutton:hover,
+
+panel treechildren::-moz-tree-row(selected),
+
+panel button:hover,
+
+menu:hover,
+
+menu[_moz-menuactive],
+
+menu[open],
+
+menuitem:hover,
+
+menuitem[_moz-menuactive] {
+
+background-color: #414141 !important; /*hover bg color here*/
+
+color: #c3c3c3 !important;
+
+}
+
+
+menupopup, popup,
+
+popup > menu > menupopup,
+
+menupopup > menu > menupopup {
+
+-moz-appearance: none !important;
+
+background: #232323 !important;
+
+border: 0px !important;
+
+border-radius: 5px !important;
+
+padding: 2px 0px 2px 0px !important;}
+
+menupopup menuseparator {
+
+-moz-appearance: none !important;
+
+background-color: #c3c3c3 !important;
+
+margin: 2px 0px 2px 0px !important;
+
+padding: 0 !important;
+
+border-top: none !important;
+
+border-color: transparent !important;}
+
+menupopup menu, menuitem{
+
+-moz-appearance: none !important;
+
+color: #c3c3c3 !important;}
+
+
+#context-navigation {
+
+color: #c3c3c3 !important;
+
+background-color: #232323 !important;
+
+}
+
+
+#context-navigation menuitem {
+
+color: #c3c3c3 !important;
+
+background: #232323 !important;
+
+transition: color 300ms cubic-bezier(0.645, 0.045, 0.355, 1) !important;
+
+}
+
+#context-navigation menuitem:hover {
+
+color: cyan !important;
+
+}
+
+
+/*separator line under nav buttons in right click page menu*/
+
+#context-sep-navigation{
+
+display: none !important; /*currently line is not shown*/
+
+}
+
+#context-sep-sendpagetodevice{
+
+display: none !important;
+
+}
+
+#context-sep-viewbgimage{
+
+display: none !important;
+
+}
+
+#context-sep-viewsource{
+
+display: none !important;
+
+}
+
+#inspect-separator{
+
+display: none !important;
+
+}
+
+
+
+
+/*Invert submenu arrow > color*/
+
+.menu-right{
+
+filter: invert(95%)
+
+}
+
+/* remove stuff from standard context menu */
+#context-viewbgimage {
+
+display: none !important;
+
+}
+
+#context-selectall {
+
+display: none !important;
+
+}
+
+#context-viewinfo {
+
+display: none !important;
+
+}
+
+#context-savepage{
+
+  display: none !important;
+  
+}
+
+#context-pocket{
+
+  display: none !important;
+  
+}
+
+#context-sendpagetodevice{
+
+  display: none !important;
+  
+}
+
+/* remove stuff from link context menu */
+
+#context-bookmarklink{
+
+  display: none !important;
+  
+}
+
+#context-savelink{
+
+  display: none !important;
+  
+}
+
+#context-savelinktopocket{
+
+  display: none !important;
+  
+}
+
+#context-searchselect{
+
+  display: none !important;
+  
+}
+
+#context-sendlinktodevice{
+
+  display: none !important;
+  
+}
+
+#ublock0_raymondhill_net_uBlock0-blockElement{
+
+  display: none !important;
+  
+}
+
+#screenshots_mozzila_org_create-screenshot{
+
+  display: none !important;
+  
+}
+
+/* removes stuff from image context menu */
+#context-sendimage{
+
+  display: none !important;
+  
+}
+
+#context-setDesktopBackground{
+
+  display: none !important;
+  
+}
+/* removes stuff from tab context menu */
+#context_sendTabToDevice{
+
+  display: none !important;
+  
+}
+
+#context_duplicateTab{
+
+  display: none !important;
+  
+}
+
+#context_undoCloseTab{
+
+  display: none !important;
+  
+}
+
+
+
+/* makes context menus like windows 10 dark theme */
+
+/* Colors */
+
+:root
+{
+	--context-accent: #414141;
+	--context-active: #ffffff;
+	--context-background: #2b2b2b;
+	--context-border: #a0a0a0;
+	--context-disabled: #6d6d6d;
+	--context-front: #ffffff;
+	--context-separator: #808080;
+}
+
+@media (prefers-color-scheme: dark)
+{
+	:root
+	{
+		--context-accent: #414141;
+		--context-active: #ffffff;
+		--context-background: #2b2b2b;
+		--context-border: #a0a0a0;
+		--context-disabled: #6d6d6d;
+		--context-front: #ffffff;
+		--context-separator: #808080;
+	}
+}
+
+@media (prefers-color-scheme: light)
+{
+	:root
+	{
+		--context-accent: #ffffff; /* Was #d9d9d9 in 1809 */
+		--context-active: #000000;
+		--context-background: #eeeeee; /* Was #f2f2f2 in 1809 */
+		--context-border: #a0a0a0;
+		--context-disabled: #6d6d6d;
+		--context-front: #000000;
+		--context-separator: #919191;
+	}
+}
+
+#screenshots_mozilla_org-menuitem-_create-screenshot > .menu-iconic-left
+{
+	-moz-context-properties: fill, fill-opacity !important;
+	fill: var(--context-front) !important;
+}
+
+
+toolbarpaletteitem[place="toolbar"][id^="wrapper-customizableui-special-spring"], toolbarspring {
+  -moz-box-flex: 1;
+  min-width: 0px !important;
+  max-width: 0px !important;
+}
+
+:host {
+  cursor: text;
+  color: white !important;
+}
+
+/* this makes the tabs rounded */
+.tab-background,
+.tab-loading-burst {
+    border: none !important;
+    border-radius: 13px !important; /* 13px */
+    transform: scale(1, .93) !important;
+}
+
+
+/* this changes the forward and back buttons */
+/* #back-button {
+	list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADdcAAA3XAUIom3gAAAAHdElNRQfiAxMSNzVLQoGBAAAAb0lEQVQoz43ROQqDUBSF4UMEESKCBBehOODK7ezSWZnGJmuI4xp+66CX9077FXc40k1o+fCSFRoOOgKLa3Z6QosrNt5EFpesDDwtLlgYSSzOmZlILY758SW7ykO+cYzwWNLjTI9HSc5XS86ypP+6Tw/fVEqhFbEZAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE4LTAzLTE5VDE4OjU1OjUzKzAxOjAwq3ccegAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxOC0wMy0xOVQxODo1NTo1MyswMTowMNoqpMYAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAAElFTkSuQmCC") !important;
+}
+#forward-button {
+	list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADdcAAA3XAUIom3gAAAAHdElNRQfiAxMSOA3k2CXQAAAAbklEQVQoz5WRMQqDABAEF4UgKEIIPkKJii+3s7NLpY1N3qBR84axsPYOt1sYuNtdSZLEi5FG1yKk5U9tIQ86dioLiejZKC0k5sPK20JSBn4UFvJkYiG3kIwvM8npAt2Vc8J50onpFOVU7Y51PfcBtUFUSir+geUAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTgtMDMtMTlUMTg6NTY6MTMrMDE6MDDECqmDAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDE4LTAzLTE5VDE4OjU2OjEzKzAxOjAwtVcRPwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAAASUVORK5CYII=") !important;
+} */
+
+/* list-style-image you can modify by 
+url(your-icon-there.png (or svg) ) !important; */
+
+#tabs-newtab-button.toolbarbutton-1 .toolbarbutton-icon {
+	/* background-color: unset !important; */
+	/* list-style-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhLS0gR2VuZXJhdG9yOiBHcmF2aXQuaW8gLS0+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBzdHlsZT0iaXNvbGF0aW9uOmlzb2xhdGUiIHZpZXdCb3g9IjAgMCAxNSAxNCIgd2lkdGg9IjE1IiBoZWlnaHQ9IjE0Ij48ZGVmcz48Y2xpcFBhdGggaWQ9Il9jbGlwUGF0aF9LTUVkenVLWUlnYVpuTnhJS0Z4eklvQjdMcmhpTVFmZiI+PHJlY3Qgd2lkdGg9IjE1IiBoZWlnaHQ9IjE0Ii8+PC9jbGlwUGF0aD48L2RlZnM+PGcgY2xpcC1wYXRoPSJ1cmwoI19jbGlwUGF0aF9LTUVkenVLWUlnYVpuTnhJS0Z4eklvQjdMcmhpTVFmZikiPjxjbGlwUGF0aCBpZD0iX2NsaXBQYXRoX3RXWmJjbmxRdlRrdVo5Z241dTFuN3RTNWtPMnlKZEw2Ij48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTUiIGhlaWdodD0iMTQiIHRyYW5zZm9ybT0ibWF0cml4KDEsMCwwLDEsMCwwKSIgZmlsbD0icmdiKDI1NSwyNTUsMjU1KSIvPjwvY2xpcFBhdGg+PGcgY2xpcC1wYXRoPSJ1cmwoI19jbGlwUGF0aF90V1piY25sUXZUa3VaOWduNXUxbjd0UzVrTzJ5SmRMNikiPjxnPjxsaW5lYXJHcmFkaWVudCBpZD0iX2xncmFkaWVudF8xIiB4MT0iLTAuMDAxNTU3OTcxMDE0NDkyNzQ5IiB5MT0iMC40OTk5NjMxNjQ4NzQwMjM4NyIgeDI9IjEuMDg4MDI1MzYyMzE4ODQwNSIgeTI9IjAuNDk5OTYzMTY0ODc0MDIzODciIGdyYWRpZW50VHJhbnNmb3JtPSJtYXRyaXgoMTUsMCwwLDE0LDAsMCkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj48c3RvcCBvZmZzZXQ9IjEuNzM5MTMwNDM0NzgyNjA4NiUiIHN0b3Atb3BhY2l0eT0iMSIgc3R5bGU9InN0b3AtY29sb3I6cmdiKDAsMCwwKSIvPjxzdG9wIG9mZnNldD0iMjMuOTEzMDQzNDc4MjYwODclIiBzdG9wLW9wYWNpdHk9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOnJnYigzMCwxNDQsMjU1KSIvPjwvbGluZWFyR3JhZGllbnQ+PHBhdGggZD0iIE0gMCAwIEwgOC43MiAwIEwgMTUgNy4wMDkgTCA4LjcyIDE0IEwgMCAxNCBMIDAgMCBaICBNIDYuOTc1IDMuNzUxIEwgNi45NzUgNi41NjEgTCA0LjE2NSA2LjU2MSBMIDQuMTY1IDcuNDk4IEwgNi45NzUgNy40OTggTCA2Ljk3NSAxMC4zMDggTCA3LjkxMSAxMC4zMDggTCA3LjkxMSA3LjQ5OCBMIDEwLjcyMSA3LjQ5OCBMIDEwLjcyMSA2LjU2MSBMIDcuOTExIDYuNTYxIEwgNy45MTEgMy43NTEgTCA2Ljk3NSAzLjc1MSBaICIgZmlsbC1ydWxlPSJldmVub2RkIiBmaWxsPSJ1cmwoI19sZ3JhZGllbnRfMSkiLz48L2c+PC9nPjwvZz48L3N2Zz4=") !important; */
+  border-radius: 13px !important;
+}
+
+
+
+#back-button {
+  list-style-image: url("icons/chevron-left.svg") !important;
+  /* transform: scale(2,2) !important; */
+}
+
+
+#nav-bar-overflow-button{
+  list-style-image: url("icons/menu-5-line.svg") !important;
+}
+
+
+
+
+/* You should enable any non-default theme for these to apply properly. Built-in dark and light themes should work */
+/* :root{ */
+  /* Popup panels */
+  /* --arrowpanel-background: olive !important; */
+  /* --arrowpanel-border-color: green !important; */
+  /* --arrowpanel-color: cyan !important; */
+  /* --arrowpanel-dimmed: rgba(0,0,0,0.4) !important; */
+  /* window and toolbar background */
+  /* --lwt-accent-color: purple !important; */
+  /* --toolbar-bgcolor: rgba(0,0,0,0.4) !important; */
+  /* tabs */
+  /* --lwt-text-color: cyan !important; */
+  /* toolbar area */
+  /* --lwt-toolbarbutton-icon-fill: white !important; */
+  /* --lwt-toolbarbutton-hover-background: orange !important; */
+  /* --lwt-toolbarbutton-active-background: red !important; */
+  /* urlbar */
+  /* --lwt-toolbar-field-background-color: olive !important; */
+  /* --lwt-toolbar-field-focus: grey !important; */
+  /* --lwt-toolbar-field-border-color: green !important; */
+  /* --toolbar-field-focus-border-color: pink !important; */
+  /* --lwt-toolbar-field-color: red !important; */
+  /* --lwt-toolbar-field-focus-color: white !important; */
+  /* --urlbar-popup-url-color: cyan !important; */
+  /* sidebar - note the sidebar-box rule for the header-area */
+  /* --lwt-sidebar-background-color: purple !important; */
+  /* --lwt-sidebar-text-color: yellow !important;
+  --lwt-
+} */
+/* Line above tabs */
+/* #tabbrowser-tabs{ --tab-line-color: white !important; } */
+/* the header-area of sidebar needs this to work */
+/* #sidebar-box{ --sidebar-background-color: purple !important; } */
