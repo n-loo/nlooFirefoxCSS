@@ -1,4 +1,4 @@
-# FirefoxCSS
+# nlooFirefoxCSS
 My Firefox css mods
 The base theme is from https://github.com/migueravila/SimplerentFox with some mods I added to it. 
 
