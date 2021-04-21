@@ -21,7 +21,27 @@
 
 /* new tab page background */
 
-@-moz-document url-prefix(about:home), url-prefix(about:newtab) { .click-target-container *, .top-sites-list * { color: #fff !important ; text-shadow: 2px 2px 2px #000 !important ; }
+/* .blurredbackground {
+	background: url("anghus'-house-by-the-sea-by-grady-frederick-3840×2160.jpg") !important;
+	filter: blur(10px);
+	background-size: cover !important ;
+} */
 
-body { background: url(forest-blurred.png) !important ; background-size: cover !important ; } }
+@-moz-document url-prefix(about:home), url-prefix(about:newtab) { 
+	.click-target-container *, .top-sites-list * { 
+		color: #fff !important ; 
+		text-shadow: 2px 2px 2px #000 !important ; 
+	}
+
+	body { 
+		/* background-image: url("blur-photo.com_1616467798.jpg") !important ;  */
+		/* background-image: url('C:/Users/nlvan/Documents/Wallpaper/currentblur.jpg') !important; */
+		background-image: url('currentblur.jpg') !important;
+		/* filter: blur(10px); */
+		background-size: cover !important ; 
+		/* -webkit-filter: blur(5px); */
+	}
+}
+
+
 
